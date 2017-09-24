@@ -4,12 +4,12 @@
 
 `mkdir`: Used to create directories
 
-Common options
+_Common options_
 
 `-p` if you are trying to create a directory whose parent does not exist, create
 all the necessary intermediate paths.
 
-Examples
+_Examples_
 ```
 $ mkdir /tmp/test
 $ mkdir /tmp/test/test2
@@ -18,13 +18,13 @@ $ mkdir -p /tmp/test2/subtest
 
 `rmdir`: Used to remove empty directories
 
-Common options
+_Common options_
 
 `-p` will remove parent directories if the contain only the path to the directory
 being removed.  Recommended that you use this _only_ relative to the current
 directory; i.e., `rmdir -p some/path` and never `rmdir -p /some/absolute/path`.
 
-Examples
+_Examples_
 ```
 $ rmdir /tmp/test/test2
 $ cd /tmp
