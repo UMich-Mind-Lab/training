@@ -1,5 +1,6 @@
 # Linux commands to work with the filesystem
 
+
 ### File and directory names
 
 You can name files and directories almost anything on a Linux machine,
@@ -9,10 +10,17 @@ recommended set of characters is
 
 + letters, both upper- and lowercase
 + numerals
-+ the dash (`-`), the underscore (`_`), and the dot (.)  Note that a
-  dot as the _first_ character will make a file or directory hidden
-  from normal `ls` commands and wildcards.  Many _dot files_ are for
-  configuration options or program data.
++ the dash (`-`), the underscore (`_`), and the dot (.)
+
+Note that a dot as the _first_ character will make a file or directory
+hidden from listing commands and wildcards.  Many _dot files_ are for
+configuration options or program data.
+
+There are also two special directories, called dot (`.`) and dot-dot (`..`).
+The dot directory is the directory that you are currently working from
+(or are 'in').  The dot-dot directory is the one above the current
+directory, or, if you're looking at its name, it's everything to the
+left of the first `/` character as you move to the left from the right.
 
 Other characters can be used, but may have special significance to some
 programs and are therefore not recommended.
@@ -30,31 +38,8 @@ extension to match those on Windows, so stick with `.m` for MATLAB
 scripts, `.py` for Python, `.txt` for text files, etc.  That will make
 you happier if you copy them to and from Windows.  Much happier.
 
-### File permissions
 
-Files will have permissions to say who can and cannot look at or in them,
-who can remove or change them, who can run them as programs.  In a listing
-that shows permissions, the permissions are specified by single letters:
-`r` for read, `w` for write, `x` for execute, and `-` for no permission.
-The permissions are set in groups of three, with position indicating to
-whom they apply.  Here is an example of the permissions set for a file,
-where the permissions are the first listed group of characters, `-rw-rw-r--.`.
-```
-$ ls -l README 
--rw-rw-r--. 1 grundoon users 0 Sep 24 12:08 README
-```
-The first `-` simply indicates that this is an ordinary file.  The next
-three 
-
-
-### Directory permissions
-
-Directories need to have the execute permission set for the users permitted to be
-able to change into the directory.  The group sticky bit, `s`, can be set so
-that new files and directories created within a parent will inherit the group
-ownership of the parent.  See the `chmod` command below for more information.
-
-## Useful commands
+## 
 
 #### `pwd`: Print the present working directory
 Typically used without options.
@@ -77,7 +62,7 @@ $ mkdir /tmp/test/test2
 $ mkdir -p /tmp/test2/subtest
 ```
 
-#### `chdir`: Change to a directory
+#### `cd`: Change to a directory
 _Common options_
 Including a directory or file name or names causes `ls` to work on the given
 files or directories.  Without any arguments, `cd` will change to your home
@@ -104,6 +89,42 @@ $ rmdir /tmp/test/test2
 $ cd /tmp
 $ rmdir -p /tmp/test2/subtest
 ```
+
+
+### File permissions
+
+Files will have permissions to say who can and cannot look at or in them,
+who can remove or change them, who can run them as programs.  In a listing
+that shows permissions, the permissions are specified by single letters:
+`r` for read, `w` for write, `x` for execute, and `-` for no permission.
+The permissions are set in groups of three, with position indicating to
+whom they apply.  Here is an example of the permissions set for a file,
+where the permissions are the first listed group of characters, `-rw-rw-r--.`.
+```
+$ ls -l README 
+-rw-rw-r--. 1 grundoon users 0 Sep 24 12:08 README
+```
+The first `-` simply indicates that this is an ordinary file.  The next
+three characters, `rw-` indicate that the owner of the file, a user named
+`grundoon`, can read and write the file, and that it should not be considered
+an executable (runnable) program.  The second set is the same as the first
+`rw-` but applies to the group, in this case `users`.  The final set is
+`r--`, which applies to all others not an owner or in the group, and means
+they can only read, and cannot write or execute.  The final `.` characters
+means that the may be additional permissions imposed by an _access control
+list_, and those may change what you see in the directory listing.
+
+
+### Directory permissions
+
+In addition to the read and write permissions, directories need to have
+the execute permission set for the users permitted to be able to change
+into the directory.  If the `x` is not set, then they will be able list
+the contents of the directory, but they will not be able to `cd` to it.
+
+The group sticky bit, `s`, can be set so that new files and directories created
+within a parent will inherit the group ownership of the parent.  See the `chmod`
+command below for more information.
 
 #### `ls`: List the contents of a directory
 
