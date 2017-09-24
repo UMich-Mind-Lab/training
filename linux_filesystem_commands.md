@@ -9,7 +9,10 @@ recommended set of characters is
 
 + letters, both upper- and lowercase
 + numerals
-+ the dash (`-`), the underscore (`_`), and the dot (.)
++ the dash (`-`), the underscore (`_`), and the dot (.)  Note that a
+  dot as the _first_ character will make a file or directory hidden
+  from normal `ls` commands and wildcards.  Many _dot files_ are for
+  configuration options or program data.
 
 Other characters can be used, but may have special significance to some
 programs and are therefore not recommended.
@@ -109,6 +112,18 @@ that new files and directories created within a parent will inherit the group
 ownership of the parent.  See the `chmod` command below for more information.
 
 ## Some useful utility programs
+
+#### `cat`: Print the contents of a file or files
+This will print the contents, no matter what they are (might be binary
+and look like punctuation and make beeps), nor how big the file is.  Still
+useful, but use caution.  One use is to get file contents onscreen to copy
+and paste.
+
+_Examples_
+```
+$ cat .bashrc
+$ cat README INSTALL
+```
 
 #### `less`: Used to 'page' through a file one screen at a time.
 
