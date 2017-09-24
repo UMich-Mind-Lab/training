@@ -30,6 +30,32 @@ extension to match those on Windows, so stick with `.m` for MATLAB
 scripts, `.py` for Python, `.txt` for text files, etc.  That will make
 you happier if you copy them to and from Windows.  Much happier.
 
+### File permissions
+
+Files will have permissions to say who can and cannot look at or in them,
+who can remove or change them, who can run them as programs.  In a listing
+that shows permissions, the permissions are specified by single letters:
+`r` for read, `w` for write, `x` for execute, and `-` for no permission.
+The permissions are set in groups of three, with position indicating to
+whom they apply.  Here is an example of the permissions set for a file,
+where the permissions are the first listed group of characters, `-rw-rw-r--.`.
+```
+$ ls -l README 
+-rw-rw-r--. 1 grundoon users 0 Sep 24 12:08 README
+```
+The first `-` simply indicates that this is an ordinary file.  The next
+three 
+
+
+### Directory permissions
+
+Directories need to have the execute permission set for the users permitted to be
+able to change into the directory.  The group sticky bit, `s`, can be set so
+that new files and directories created within a parent will inherit the group
+ownership of the parent.  See the `chmod` command below for more information.
+
+## Useful commands
+
 #### `pwd`: Print the present working directory
 Typically used without options.
 _Example_
@@ -103,15 +129,6 @@ $ ls -ld /tmp /var /data/projects/*
 $ ls -lt /tmp
 $ ls -ltr /tmp
 ```
-
-### Directory permissions
-
-Directories need to have the execute permission set for the users permitted to be
-able to change into the directory.  The group sticky bit, `s`, can be set so
-that new files and directories created within a parent will inherit the group
-ownership of the parent.  See the `chmod` command below for more information.
-
-## Some useful utility programs
 
 #### `cat`: Print the contents of a file or files
 This will print the contents, no matter what they are (might be binary
