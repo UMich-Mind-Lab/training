@@ -39,7 +39,7 @@ scripts, `.py` for Python, `.txt` for text files, etc.  That will make
 you happier if you copy them to and from Windows.  Much happier.
 
 
-## 
+## Some commands
 
 #### `pwd`: Print the present working directory
 Typically used without options.
@@ -90,6 +90,30 @@ $ cd /tmp
 $ rmdir -p /tmp/test2/subtest
 ```
 
+#### `rm`: Used to remove a file or folder (usually non-empty)
+
+The `rm` command in its simplest form removes a file.  It can also be
+used to remove directories, empty or not.
+
+_Common options_
+
+`-r` instructs `rm` to remove all the files and folders in the provided
+directory (or file) name.
+
+`-i` instructs `rm` to prompt whether to delete each file before doing
+so.
+
+`-v` instructs `rm` to print a report of what it deleted.
+
+_Examples_
+```
+$ rm  tmp.0xkT43
+$ rm -rv subject02000
+$ rm -ri DTI/sub001.bad
+```
+
+
+## Permissions and what they are for
 
 ### File permissions
 
@@ -114,6 +138,40 @@ they can only read, and cannot write or execute.  The final `.` characters
 means that the may be additional permissions imposed by an _access control
 list_, and those may change what you see in the directory listing.
 
+It's worth making special note of the `x` permission on files.  Even if a
+file contains the binary data needed to be run by the computer, if the `x`
+permission is not set, Linux will not execute it.  On Linux computers,
+it is also possible to write a program in a _scripting language_, like
+Bash (the shell), or Python, or Perl, and insert a special line at the
+top of the file that says which program understands the program.  When
+the execute permission (sometimes referred to as the execute _bit_) is
+set, the shell will read that line and start the right program to run
+the script.
+
+An example will help clarify this.  Suppose we have a file called
+`hello.sh` that contains the following lines
+```
+#!/bin/bash
+echo "Hello, there."
+echo "I just printed something for you."
+```
+The first line says which progam understands all the following lines,
+and the next two lines are anything that the program understands.  In
+this case, the shell will hand over to another shell to run the commands.
+
+Here is what the same program might look like if written for Python and
+save in `hello.py`.
+```
+#!/usr/bin/python
+print("Hello, there.")
+print("I just printed something for you.")
+```
+If the execute permission is unset, those two scripts could still be
+run, but you would need to provide the program name yourself.
+```
+$ bash hello.sh
+$ python hello.py
+```
 
 ### Directory permissions
 
@@ -125,6 +183,9 @@ the contents of the directory, but they will not be able to `cd` to it.
 The group sticky bit, `s`, can be set so that new files and directories created
 within a parent will inherit the group ownership of the parent.  See the `chmod`
 command below for more information.
+
+
+## Some more commands
 
 #### `ls`: List the contents of a directory
 
@@ -193,5 +254,79 @@ is.  In more advanced use, it can be used to trigger reprocessing of files that
 use the modification time of the input file to decide whether processing needs
 to be done or not.
 
+## Wildcards
 
+Wildcards are used when you want to specify only part of a name.  This can be
+used frivolously as a typing shortcut, or to match pattern in the names of
+a group of files (and remember, directories are files, too).  The most commonly
+used wildcard is the `*` character, which by itself stands for 'zero or more
+of anything'.  You can restrict the characters that it will match none or more
+of by putting the characters inside square brackets before the `*`.  For example,
+```
+$ ls -d sub0[01]*
+```
+will list `sub001` and `sub00000` but not `sub020`, because `2` is not included
+in the match set.  You can use a range or ranges inside the brackets.  For example,
+`[0-9a-zA-z]` would match letters and numerals.  Zero or more can sometimes
+lead to too many matches, and it is often better to try to be more specific.
+
+The other wildcard character that the shell understands is tehe question mark.
+It will match exactly one occurrence.  Consider the difference between these
+two patterns: `sub*` and `sub???`.  The first will match anything that begins
+with `sub`, whereas the second will match only if there are exactly three
+characters.  Which would you want to use if you were removing subject
+directories, but there were also a file called `subject_BMIs.txt` in the same
+folder?
+
+#### `cp`: Copy a file or files
+
+The `cp` command copies a file.  If no path is given, then the new files is
+in the same directory as the original.  A path can be given to either the
+original or to the new file or both.  You do not have to be in the directory
+of either file to copy a file.
+
+_Common options_
+
+`-r` when used with a directory name will copy the directory and all its
+contents to the new location.
+
+`-p` will copy the last modified date and time from the original to the new
+file.  This is really helpful when reorganizing and the date may help people
+when looking at directory listings.
+
+_Examples_
+```
+$ cp dissertation.txt dissertation.txt.bak
+$ cp ~/file.txt /tmp/test.txt
+$ cp -r openfmri /tmp/openfMRI
+$ cp -rp data/subject001/raw data/raw/subject001
+```
+
+#### `mv`: Move a file or files to another location or name
+
+On Linux, renaming a file on the same file system may be the same as renaming
+a file, so the simplest `mv` just renames a file.  `mv` is also used to
+move files from one directory to another.  It can be used to move whole
+directories to a new location as well.  If the target exists, `mv` will
+happily overwrite it.
+
+_Common options_
+
+`-i` will cause `mv` to prompt whether you want to overwrite the new file if one
+exists in the new location.
+
+`-n` instructs `mv` not to overwrite an existing file.
+
+_Examples_
+```
+$ mv tset.txt test.txt
+$ mv data_dir study_dir
+$ mv -i data_dir/anat study_dir/anat
+$ mv -n data_dir/func study_dir/func
+```
+
+#### `rename`: Copy a file or files
+
+_Common options_
+_Examples_
 
