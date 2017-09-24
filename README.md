@@ -1,2 +1,4 @@
-# training
-Training materials for the MIND lab
+# MiND Lab training repository
+
+This repository contains training materials for the MiND Lab at the University
+of Michigan.
