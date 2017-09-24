@@ -140,6 +140,11 @@ at the top of the listing.
 `-ltr` is the same as `-lt` except in reverse-chronological order, i.e., the
 most recently modified files will appear at the bottom of the listing.
 
+`-R` says `ls` should list the contents of all subdirectories as well as
+the directory or directories given as arguments.  This is a good place
+to remind you, or tell you, that Linux is case sensitive, so `-r` and
+`-R` are completely different.
+
 _Examples_
 ```
 $ ls
@@ -149,7 +154,14 @@ $ ls -d /tmp/*
 $ ls -ld /tmp /var /data/projects/*
 $ ls -lt /tmp
 $ ls -ltr /tmp
+$ ls -R /tmp
 ```
+
+#### `chmod`: Change the mode (permissions) of a file or directory
+
+_Common options_
+_Examples_
+
 
 #### `cat`: Print the contents of a file or files
 This will print the contents, no matter what they are (might be binary
