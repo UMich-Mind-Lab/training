@@ -56,3 +56,51 @@ have folders and files that look like this.
 ./MTwiNS/MT_154/MRI Tasks/Twin 2
 ./MTwiNS/MT_154/MRI Tasks/Twin 2/154_faces_t2.edat2
 ```
+
+If you don't have that, which you shouldn't, you can make it with these
+commands.
+```
+for id in 1 23 154 ; do
+    for twin in 1 2 ; do
+        mkdir -p "MTwiNS/MT_$id/MRI Tasks/Twin $twin
+        touch "MTwiNS/MT_$id/MRI Tasks/Twin $twin/${id}_faces_t$twin.edat2"
+    done
+done
+```
+(There is a deliberate error in the code snip above.  Find it; fix it.)
+
+This is an excellent opportunity to use the `echo` command to help figure
+things out.  What does the following get you?
+```
+for subdir in $(ls -d */M*) ; do
+    echo $subdir
+done
+```
+If you are on the same computer I am, you got something like
+```
+MT_154/MRI
+Tasks
+MT_1/MRI
+Tasks
+MT_23/MRI
+Tasks
+```
+Does putting quotes around the `$subdir` on the `echo` command help?
+Where do you need to put the quotes?
+
+Putting quotes around `$(ls -d */M*)` appears not to do the right thing.
+That gets us this, instead, where the value of `$subdir` is now the
+whole list of names, just once, instead of the name of each subdirectory
+once per iteration.  That is, we get,
+```
+MT_154/MRI Tasks MT_1/MRI Tasks MT_23/MRI Tasks
+```
+instead of
+```
+MT_154/MRI Tasks
+MT_1/MRI Tasks
+MT_23/MRI Tasks
+```
+which is what we want.
+
+for dir in * ; do subdir=$(ls $dir) ; old="$dir/$subdir" ; new=$(echo $old | tr ' ' '_'); mv "$old" $new ; done
