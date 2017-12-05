@@ -221,6 +221,7 @@ $ ls -R /tmp
 #### `chmod`: Change the mode (permissions) of a file or directory
 
 _Common options_
+
 _Examples_
 
 
@@ -328,5 +329,6 @@ $ mv -n data_dir/func study_dir/func
 #### `rename`: Copy a file or files
 
 _Common options_
+
 _Examples_
 
