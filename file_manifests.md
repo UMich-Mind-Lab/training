@@ -41,7 +41,7 @@ You should change the permissions with
 $ chmod +x <filename>
 ```
 
-## Practical application
+## Practical application/exercise
 
 Here is the list of files we are supposed to have.
 
@@ -73,4 +73,10 @@ $ python file_compare.py
 $ ./file_compare.py
 ```
 
+For an extra nicety, the `dicom` in the second list is a
+directory.  Add an extra test so that if `dicom.tgz` is
+there it is considered right, if `dicom` is there, print
+a message saying:  DICOM files are in a directory.  If
+neither of those is there, then print a message saying
+that the DICOM files are missing.
 
