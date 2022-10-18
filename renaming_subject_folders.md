@@ -16,7 +16,7 @@ Not only is it safer to try to match an exact pattern, like
 ```bash
 MT_[0-9][0-9][0-9][0-9]
 ```
-which will only match three-digit subjects, than matching `MT_*`,
+which will only match four-digit subjects, than matching `MT_*`,
 when you list or sort the folder names, now they come out in
 numerical order instead of 'ASCII-betical', which is when you have
 ```bash
