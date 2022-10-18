@@ -19,3 +19,9 @@ about?
 We can use this as a framework for learning some useful
 programming constructs with Python and shell programming.
 
+This is also going to be a concern for our data management,
+as much of what we do will be checking that files got created,
+that they were named correctly, that a record of what was
+right, what wrong, and what was done about the wrong is
+created.
+
