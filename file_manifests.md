@@ -80,3 +80,8 @@ a message saying:  DICOM files are in a directory.  If
 neither of those is there, then print a message saying
 that the DICOM files are missing.
 
+Example of colorized Python.
+```python
+>>> print("Hello, world")
+Hello, world
+```
