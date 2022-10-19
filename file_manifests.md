@@ -27,54 +27,46 @@ created.
 
 ## Notes from first meeting
 
+Load python module anaconda: ‘module load anaconda-3.7’
 ```
 $ module load anaconda-3.7
 ```
-Load python module anaconda: ‘module load anaconda-3.7’
-
+`--version` command tells us which version of python we are currently using.
+*Note:* The greatest difference between python packages = between v2 and v3. 
 ```
 $ python --version
 Python 3.7.4
 ```
-Command tells us which version of python we are currently using.
-Greatest difference between python packages = between v2 and v3
-
-
+Command `python` runs python / allows us to use python via the command prompt / PuTTY.
 ```
 $ python
 Python 3.7.4 (default, Aug 13 2019, 20:35:49)
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 ```
-Command ‘python’ runs python / allows us to use python via the command prompt / PuTTY.
-
 *Note: `>>>` Indicates that we are using python*
+----
 
-
+**Python Tips**
+The `print()` function provides an output of what is put within quotation marks in the parentheses
 ```python
 >>> print("Hello, world.")
 Hello, world.
 ```
-The `print()` function provides an output of what is put within quotation marks in the parentheses
 
-
+One `=` sign assigns a variable to a name
+You can print the variable if you put the assigned name into the `print()` function
 ```python
 >>> mesg = "Hello, world."
 >>> print(mesg)
 Hello, world.
 ```
-One ‘=’ sign assigns a variable to a name
-You can print the variable if you put the assigned name into the `print()` function
-
-
 
 ```python
 >>> msg=mesg
 >>> print(msg)
 Hello, world.
 ```
-
-
 ```python
 >>> mesg="Goodbye, cruel world"
 >>> print(mesg)
@@ -83,7 +75,8 @@ Goodbye, cruel world
 Hello, world.
 ```
 
-
+You can also assign a name to an integer variable 
+The command ‘type()’ returns the variable type
 ```python
 >>> m = 4
 >>> type(m)
@@ -91,11 +84,8 @@ Hello, world.
 >>> type(msg)
 <class 'str'>
 ```
-You can also assign a name to an integer variable 
-The command ‘type()’ returns the variable type
 There are 4 variable types: string, integer, 
-
-
+`=` assigns a variable to a name, while `==` means 'equals to' 
 ```python
 >>> n = "4"
 >>> m==n
@@ -105,15 +95,14 @@ False
 True
 ```
 
-
+*Arrays:* multiple versions of the same types of data
+*List:* can contain more than one type of data. Lists are identified by square brackets ‘[]’
 ```python
 >>> lst = ["Hello", "Goodbye", "Yo"]
 >>> print(lst)
 ['Hello', 'Goodbye', 'Yo']
 ```
-[Arrays:] multiple versions of the same types of data
-[List:] can contain more than one type of data. Lists are identified by square brackets ‘[]’
-
+----
 
 **For Loops and Conditionals** 
 ```python
@@ -127,7 +116,7 @@ Yo , world.
 'Word’ = variable in list we are using in the for loop - in this case it 
 
 
-[If else:-] 
+Using `if else`:
 ```python
 >>> for word in lst:
     if word == "Yo":
@@ -141,7 +130,7 @@ Yo , brudder!
 ```
 
 
-[If else, else if:-]
+Using `if else,else if`:
 ```python
 >>> for word in lst:
    if word == "Yo":
@@ -155,7 +144,7 @@ Hello , world
 Goodbye , cruel world
 Yo , brudder!
 ```
-
+----
 
 **Trial**
 'new' refers to the list of files we should have 
@@ -186,20 +175,20 @@ Hey  is extra
 Dude  is extra
 ```
 
-
+Exit Python.
 ```python
 >>> cntrl D
 ```
-This command allows us to exit python. It can also tell linux that you have reached the end of something, not sure what
+----
 
-
+After checking to see whether python code works when running the software via PuTTY, you can create / edit python script.
+Nano is an editor which can be used to write actual python script via PuTTY.
+The command `"nano" <filename>.<filetype>`will allow you to do this. Example displayed below
 ```
 $ nano compare.py
 ```
-Command opens up ‘nano’ an editor and names file “compare.py”
 
-
-[Nano editor]
+Below is an example of python code written using the nano editor tool on PuTTY
 ```
 #!/usr/bin/env python
 
@@ -224,7 +213,7 @@ for word in new:
 
 print("If I were Jared, I would be clever here. Done.")
 ```
-
+----
 
 **Review for making a python file executable as a program.**
 
