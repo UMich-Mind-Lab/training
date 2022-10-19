@@ -38,48 +38,46 @@ $ python --version
 Python 3.7.4
 ```
 Command `python` runs python / allows us to use python via the command prompt / PuTTY.
-```
+```bash
 $ python
 Python 3.7.4 (default, Aug 13 2019, 20:35:49)
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
-*Note: `>>>` Indicates that we are using python*
+The `>>>` is the Python prompt and indicates that Python commands
+may be typed.  Each command should be followed by Return.  Some
+commands will generate a `...` prompt, which indicates that the
+command continues.  In the case of commands like `if` or `for`,
+that is normal, and subsequent commands should be indented -- the
+Python convention is indent four spaces.  You may also get that
+prompt if you have an opening quote, or parenthesis, or bracket
+without a closing one to match.
 
 
 ----
 
-**Python Tips**
+### Python Tips
 
-The `print()` function provides an output of what is put within quotation marks in the parentheses
+The `print()` function provides an output of what is put within the parentheses.
+That can be a variable name (unquoted) or a literal string (quoted).
+
 ```python
 >>> print("Hello, world.")
 Hello, world.
 ```
 
-One `=` sign assigns a variable to a name
-You can print the variable if you put the assigned name into the `print()` function
+One `=` sign assigns a variable to a name.  You can print the variable if
+you put the assigned name into the `print()` function.
+
 ```python
 >>> mesg = "Hello, world."
 >>> print(mesg)
 Hello, world.
 ```
 
-```python
->>> msg=mesg
->>> print(msg)
-Hello, world.
-```
-```python
->>> mesg="Goodbye, cruel world"
->>> print(mesg)
-Goodbye, cruel world
->>> print(msg)
-Hello, world.
-```
+The command ‘type()’ returns the variable type.
 
-You can also assign a name to an integer variable 
-The command ‘type()’ returns the variable type
 ```python
 >>> m = 4
 >>> type(m)
@@ -87,27 +85,46 @@ The command ‘type()’ returns the variable type
 >>> type(msg)
 <class 'str'>
 ```
-There are 4 variable types: string, integer, 
-`=` assigns a variable to a name, while `==` means 'equals to' 
+There are 4 variable types that we will most commonly use: string, integer,
+list, and dictionary.
+
+Note that `=` assigns a variable to a name, while `==` tests whether the
+thing on the right side is equal to the thing on the left side.  We created
+the variable `m` above, and is the integer 4.  Here we create a variable
+also with 4, but this time it is the character (string) `"4"`.  Then we
+test whether they are equal.  Finally, we demonstrate that reusing a
+variable name in a different assignment can change its type.
+
 ```python
 >>> n = "4"
->>> m==n
+>>> m == n
 False
->>> n=4
->>> m==n
+>>> n = 4
+>>> m == n
 True
 ```
 
-*Arrays:* multiple versions of the same types of data
-*List:* can contain more than one type of data. Lists are identified by square brackets ‘[]’
+In other languages, there are typically "arrays", which contain multiple
+values of the same type of data.  Python more commonly uses _lists_, which
+are similar but can contain entries of different types.  List variables
+are created by enclosing the values in square brackets ‘[]’; when an list
+is printed, it is also printed with brackets.  You can tell that the
+third element in list2 below is a number because when printed, it is
+not enclosed in quotes.
+
 ```python
 >>> lst = ["Hello", "Goodbye", "Yo"]
 >>> print(lst)
 ['Hello', 'Goodbye', 'Yo']
+
+>>> list2 = ["I", "have", 4, "values"]
+>>> print(list2)
+['I', 'have', 4, 'values']
 ```
 ----
 
-**For Loops and Conditionals** 
+### For Loops and Conditionals
+
 ```python
 >>> for word in lst:
     print(word, ", world.")
@@ -146,7 +163,7 @@ Yo , brudder!
 ```
 ----
 
-**Trial**
+### Trial
 
 `new` refers to the list of files we should have 
 
@@ -219,7 +236,7 @@ print("Done.")
 ```
 ----
 
-**Review for making a python file executable as a program.**
+### Review for making a python file executable as a program.
 
 The first line should be
 
