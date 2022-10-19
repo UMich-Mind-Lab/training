@@ -45,9 +45,12 @@ Python 3.7.4 (default, Aug 13 2019, 20:35:49)
 Type "help", "copyright", "credits" or "license" for more information.
 ```
 *Note: `>>>` Indicates that we are using python*
+
+
 ----
 
 **Python Tips**
+
 The `print()` function provides an output of what is put within quotation marks in the parentheses
 ```python
 >>> print("Hello, world.")
@@ -113,8 +116,6 @@ Hello , world.
 Goodbye , world.
 Yo , world.
 ```
-'Word’ = variable in list we are using in the for loop - in this case it 
-
 
 Using `if else`:
 ```python
@@ -128,7 +129,6 @@ Hello , world.
 Goodbye , world.
 Yo , brudder!
 ```
-
 
 Using `if else,else if`:
 ```python
@@ -147,8 +147,10 @@ Yo , brudder!
 ----
 
 **Trial**
-'new' refers to the list of files we should have 
-'lst' refers to the list of files we do have
+
+`new` refers to the list of files we should have 
+
+`lst` refers to the list of files we do have
 
 Below is an example of using the 'if, else' function to print variables in the ‘lst’ list that are missing in the ‘new’ list
 ```python
@@ -182,7 +184,9 @@ Exit Python.
 ----
 
 After checking to see whether python code works when running the software via PuTTY, you can create / edit python script.
+
 Nano is an editor which can be used to write actual python script via PuTTY.
+
 The command `"nano" <filename>.<filetype>`will allow you to do this. Example displayed below
 ```
 $ nano compare.py
@@ -211,7 +215,7 @@ for word in new:
     else:
         print(word, " is extra")
 
-print("If I were Jared, I would be clever here. Done.")
+print("Done.")
 ```
 ----
 
