@@ -36,8 +36,9 @@ Load python module anaconda: ‘module load anaconda-3.7’
 $ python --version
 Python 3.7.4
 ```
-Command tells us which version of python we are currently using 
+Command tells us which version of python we are currently using.
 Greatest difference between python packages = between v2 and v3
+
 
 ```
 $ python
@@ -48,6 +49,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Command ‘python’ runs python / allows us to use python via the command prompt / PuTTY.
 
 *Note: `>>>` Indicates that we are using python*
+
 
 ```python
 >>> print("Hello, world.")
@@ -64,11 +66,14 @@ Hello, world.
 One ‘=’ sign assigns a variable to a name
 You can print the variable if you put the assigned name into the `print()` function
 
+
+
 ```python
 >>> msg=mesg
 >>> print(msg)
 Hello, world.
 ```
+
 
 ```python
 >>> mesg="Goodbye, cruel world"
@@ -77,6 +82,7 @@ Goodbye, cruel world
 >>> print(msg)
 Hello, world.
 ```
+
 
 ```python
 >>> m = 4
@@ -89,6 +95,7 @@ You can also assign a name to an integer variable
 The command ‘type()’ returns the variable type
 There are 4 variable types: string, integer, 
 
+
 ```python
 >>> n = "4"
 >>> m==n
@@ -98,6 +105,7 @@ False
 True
 ```
 
+
 ```python
 >>> lst = ["Hello", "Goodbye", "Yo"]
 >>> print(lst)
@@ -105,6 +113,7 @@ True
 ```
 [Arrays:] multiple versions of the same types of data
 [List:] can contain more than one type of data. Lists are identified by square brackets ‘[]’
+
 
 **For Loops and Conditionals** 
 ```python
@@ -116,6 +125,7 @@ Goodbye , world.
 Yo , world.
 ```
 'Word’ = variable in list we are using in the for loop - in this case it 
+
 
 [If else:-] 
 ```python
@@ -129,6 +139,7 @@ Hello , world.
 Goodbye , world.
 Yo , brudder!
 ```
+
 
 [If else, else if:-]
 ```python
@@ -144,6 +155,7 @@ Hello , world
 Goodbye , cruel world
 Yo , brudder!
 ```
+
 
 **Trial**
 'new' refers to the list of files we should have 
@@ -161,6 +173,7 @@ Hello  is missing
 Goodbye  is missing
 ```
 
+
 Below is an example of using the 'if, else' function to print variables in the ‘new’ list that are not in the ‘lst’ list
 ```python
 >>> for word in new:
@@ -173,15 +186,18 @@ Hey  is extra
 Dude  is extra
 ```
 
+
 ```python
 >>> cntrl D
 ```
 This command allows us to exit python. It can also tell linux that you have reached the end of something, not sure what
 
+
 ```
 $ nano compare.py
 ```
 Command opens up ‘nano’ an editor and names file “compare.py”
+
 
 [Nano editor]
 ```
