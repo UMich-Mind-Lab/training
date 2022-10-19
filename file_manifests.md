@@ -27,7 +27,190 @@ created.
 
 ## Notes from first meeting
 
-Review for making a python file executable as a program.
+```
+$ module load anaconda-3.7
+```
+Load python module anaconda: ‘module load anaconda-3.7’
+
+```
+$ python --version
+Python 3.7.4
+```
+Command tells us which version of python we are currently using 
+Greatest difference between python packages = between v2 and v3
+
+```
+$ python
+Python 3.7.4 (default, Aug 13 2019, 20:35:49)
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+```
+Command ‘python’ runs python / allows us to use python via the command prompt / PuTTY.
+
+*Note: `>>>` Indicates that we are using python*
+
+```python
+>>> print("Hello, world.")
+Hello, world.
+```
+The `print()` function provides an output of what is put within quotation marks in the parentheses
+
+
+```python
+>>> mesg = "Hello, world."
+>>> print(mesg)
+Hello, world.
+```
+One ‘=’ sign assigns a variable to a name
+You can print the variable if you put the assigned name into the `print()` function
+
+```python
+>>> msg=mesg
+>>> print(msg)
+Hello, world.
+```
+
+```python
+>>> mesg="Goodbye, cruel world"
+>>> print(mesg)
+Goodbye, cruel world
+>>> print(msg)
+Hello, world.
+```
+
+```python
+>>> m = 4
+>>> type(m)
+<class 'int'>
+>>> type(msg)
+<class 'str'>
+```
+You can also assign a name to an integer variable 
+The command ‘type()’ returns the variable type
+There are 4 variable types: string, integer, 
+
+```python
+>>> n = "4"
+>>> m==n
+False
+>>> n=4
+>>> m==n
+True
+```
+
+```python
+>>> lst = ["Hello", "Goodbye", "Yo"]
+>>> print(lst)
+['Hello', 'Goodbye', 'Yo']
+```
+[Arrays:] multiple versions of the same types of data
+[List:] can contain more than one type of data. Lists are identified by square brackets ‘[]’
+
+**For Loops and Conditionals** 
+```python
+>>> for word in lst:
+    print(word, ", world.")
+
+Hello , world.
+Goodbye , world.
+Yo , world.
+```
+'Word’ = variable in list we are using in the for loop - in this case it 
+
+[If else:-] 
+```python
+>>> for word in lst:
+    if word == "Yo":
+        print(word, ", brudder!")
+    else:
+        print(word, ", world.")
+
+Hello , world.
+Goodbye , world.
+Yo , brudder!
+```
+
+[If else, else if:-]
+```python
+>>> for word in lst:
+   if word == "Yo":
+        print(word, ", brudder!")
+    elif word == "Goodbye":
+        print(word, ", cruel world")
+    else:
+        print(word, ", world")
+
+Hello , world
+Goodbye , cruel world
+Yo , brudder!
+```
+
+**Trial**
+'new' refers to the list of files we should have 
+'lst' refers to the list of files we do have
+
+Below is an example of using the 'if, else' function to print variables in the ‘lst’ list that are missing in the ‘new’ list
+```python
+>>> for word in lst:
+    if word in new:
+        pass
+    else:
+        print(word, " is missing")
+
+Hello  is missing
+Goodbye  is missing
+```
+
+Below is an example of using the 'if, else' function to print variables in the ‘new’ list that are not in the ‘lst’ list
+```python
+>>> for word in new:
+    if word in lst:
+        pass
+    else:
+        print(word, " is extra")
+
+Hey  is extra
+Dude  is extra
+```
+
+```python
+>>> cntrl D
+```
+This command allows us to exit python. It can also tell linux that you have reached the end of something, not sure what
+
+```
+$ nano compare.py
+```
+Command opens up ‘nano’ an editor and names file “compare.py”
+
+[Nano editor]
+```
+#!/usr/bin/env python
+
+lst = ["hello", "goodbye", "yo"]
+new = ['hey', 'yo', 'dude']
+
+print("Looking for missing")
+
+for word in lst:
+    if word in new:
+        pass
+    else:
+        print(word, " is missing")
+
+print("Looking for missing")
+
+for word in new:
+    if word in lst:
+        pass
+    else:
+        print(word, " is extra")
+
+print("If I were Jared, I would be clever here. Done.")
+```
+
+
+**Review for making a python file executable as a program.**
 
 The first line should be
 
