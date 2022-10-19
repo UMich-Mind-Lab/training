@@ -196,7 +196,7 @@ Dude  is extra
 
 Exit Python.
 ```python
->>> cntrl D
+>>> Ctrl-D
 ```
 ----
 
