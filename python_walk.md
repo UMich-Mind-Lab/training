@@ -48,7 +48,7 @@ top/sub3/ssub/file
 
 which can be created with these commands
 
-```
+```bash
 for ii in 1 2 3 ; do
     mkdir -p top/sub$ii
 done
@@ -121,7 +121,7 @@ I (bennet) have no idea why these are called this, but they are.  They are
 functionally equivalent to a `for` loop.  I am not entirely comfortable
 with these myself, but here is a simple one, which I will try to explain.
 
-```
+```python
 [num for num in range(10)]
 ```
 
@@ -160,7 +160,7 @@ from each tuple returned by `os.walk()`.  Tuples, like lists, have elements
 that can be accessed by index, i.e., by their numeric position.  So, from
 the comprehension example, we can use
 
-```
+```python
 >>> for thing in subdirs:
 ...   print(thing[0])
 ... 
@@ -175,7 +175,7 @@ to print just the first element of the tuple, here called `thing`.
 
 If, instead of the subdirectories, we want a list of files, we would use
 
-```
+```python
 >>> for thing in subdirs:
 ...     for file in thing[2]:
 ...         print(os.path.join(thing[0], file))
