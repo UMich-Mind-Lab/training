@@ -3,4 +3,4 @@
 This repository contains training materials for the MiND Lab at the University
 of Michigan.
 
-[Commands for working with directories and files](linux_filesystem_commansd.md)
+[Commands for working with directories and files](linux_filesystem_commands.md)
