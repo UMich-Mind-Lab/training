@@ -7,6 +7,8 @@ of Michigan.
 
 ## Python
 
+[Learning plan](python/learning_plan.md)
+
 [Accessing Google Sheets from python](python/gsheet_from_python.md)
 
 [Getting file and directory names using `os.walk()`](python/python_walk.md)
