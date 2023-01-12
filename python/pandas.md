@@ -10,4 +10,4 @@ coded for two traits of the image subject.
 The task was to add the two traits columns from the second file to
 the first.
 
-This was done with the following sanitized code.
+This is just a stub for now.
