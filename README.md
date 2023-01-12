@@ -8,4 +8,5 @@ of Michigan.
 ## Python
 
 [Accessing Google Sheets from python](python/gsheet_from_python.md)
+
 [Getting file and directory names using `os.walk()`](python/python_walk.md)
