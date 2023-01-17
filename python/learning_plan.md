@@ -33,3 +33,9 @@ https://realpython.com/python-lists-tuples/
 Next most common multiple value variable is a dictionary.
 https://realpython.com/python-dicts/
 
+## Links to some useful topics
+
+### Details about checking for True/False in conditionals
+[Truthy and Falsy Values in Python: A Detailed Introduction](https://www.freecodecamp.org/news/truthy-and-falsy-values-in-python/)
+
+[Python's all(): Check Your Iterables for Truthiness](https://realpython.com/python-all/)
