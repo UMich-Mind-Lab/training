@@ -27,6 +27,7 @@ task_files = glob('*.mat')
 
 for file in sorted(task_files):
     # We only need the second and third items from the split
+    # Example file looks like '6567_faces_t1.mat'
     task, twin = file.split('_')[1:3]
 
     # The first two characters of the twin will be the 't[12]' that we need
@@ -40,7 +41,7 @@ for file in sorted(task_files):
     # We do not want to fail if it is already there, but we do want to fail
     # if it cannot be created.
     try:
-        os.makedirs(taskDir, exist_ok=True)
+        mkdirs(taskDir, exist_ok=True)
     except:
         print(f"Failed to create {taskDir}.  Quitting.")
         sys.exit()
