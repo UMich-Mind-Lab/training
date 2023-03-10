@@ -30,10 +30,22 @@ for file in sorted(pictures):
     old_file = pjoin(dDrop, file)
 
     # construct real target path, based on whether a hair or family picture
-    if "hair" in filename:
-        new_file = pjoin(hair_loc, file)
+    if "hair" in file:
+        # We only need the second and third items from the split
+        # Example file looks like '911t1_hair.JPG'
+        s, pic = file.split('_')
+
+        # The first two characters of the twin will be the 't[12]' that we need
+        s = s[3:]
+
+        # Rename hair .JPG files
+        hair_file = f'{fam}_hair_{s}.JPG'
+
+        # Construct the real target path for hair picture files
+        new_file = pjoin(hair_loc, hair_file)
 
     else:
+        # Construct the real target path for family picture file        
         new_file = pjoin(fampic_loc, file)
 
     print(f'\nMoving {old_file}\n  to {new_file}')
