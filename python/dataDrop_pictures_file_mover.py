@@ -36,7 +36,7 @@ for file in sorted(pictures):
         s, pic = file.split('_')
 
         # The first two characters of the twin will be the 't[12]' that we need
-        s = s[3:]
+        s = s[length - 2:]
 
         # Rename hair .JPG files
         hair_file = f'{fam}_hair_{s}.JPG'
