@@ -22,8 +22,8 @@ hair_loc = f'/nfs/turbo/lsa-lukehyde/MTwiNS/time{wave}/hair_cort'
 # Must change to the directory in which glob will look
 os.chdir(dDrop)
 
-# Get just .JPG files in case there are pesky .DS_Store files or .Trash files
-pictures = glob('*.JPG')
+# Get just .jpg files in case there are pesky .DS_Store files or .Trash files
+pictures = glob('*.jpg')
 
 for file in sorted(pictures):
     # assign origin filepath
@@ -32,21 +32,26 @@ for file in sorted(pictures):
     # construct real target path, based on whether a hair or family picture
     if "hair" in file:
         # We only need the second and third items from the split
-        # Example file looks like '911t1_hair.JPG'
+        # Example file looks like '911t1_hair.jpg'
         s, pic = file.split('_')
 
         # The first two characters of the twin will be the 't[12]' that we need
         s = s[length - 2:]
 
         # Rename hair .JPG files
-        hair_file = f'{fam}_hair_{s}.JPG'
+        hair_file = f'{fam}_hair_{s}.jpg'
 
         # Construct the real target path for hair picture files
         new_file = pjoin(hair_loc, hair_file)
-
-    else:
+        
+    elif "family" in file:
         # Construct the real target path for family picture file        
         new_file = pjoin(fampic_loc, file)
+
+    else:
+        print('Something is wrong with the file name, check files in Picture folder')
+        # Need to add more to this condition 
+        sys.exit()
 
     print(f'\nMoving {old_file}\n  to {new_file}')
     try:
