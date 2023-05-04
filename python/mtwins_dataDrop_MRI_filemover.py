@@ -6,17 +6,23 @@ from os.path import join as pjoin
 from glob import glob
 from shutil import copyfile
 from shutil import move as movefile
+import argparse
+import sys
 
-# Placeholder variables for the family ID and wave.  These will eventually
-# become command line arguments to the script.
-fam  = '6486'
-wave = '2'
+parser = argparse.ArgumentParser()
+
+# familyid command line input
+parser.add_argument("-f", "--familyid", help="Print family ID.")
+# wave command line input
+parser.add_argument("-w", "--wave", help="print wave (2 or 3).")
+
+# Actually parse the defined arguments
+args = parser.parse_args()
 
 # Directory where the original files are found
-dDrop = f'/nfs/turbo/lsa-lukehyde-secure/MTwiNS/dataDrop/Wave{wave}/{fam}/MRI'
-
+dDrop = f'/nfs/turbo/lsa-lukehyde-secure/MTwiNS/dataDrop/Wave{args.wave}/{args.familyid}/MRI'
 # Directory where the MRI task files should go
-raw = f'/nfs/turbo/lsa-lukehyde/rawdata_DONOTmodify/mtwins/behavioral/time{wave}/mri_tasks'
+raw = f'/nfs/turbo/lsa-lukehyde/rawdata_DONOTmodify/mtwins/behavioral/time{args.wave}/mri_tasks'
 
 # Must change to the directory in which glob will look
 os.chdir(dDrop)
@@ -25,31 +31,28 @@ os.chdir(dDrop)
 task_files = glob('*.mat')
 
 for file in sorted(task_files):
-    # We only need the second and third items from the split
-    # Example file looks like '6567_faces_t1.mat'
-    task = file.split('_')[1]
-  
-    # Create the file names and add the full directory paths to them
-    # We do not want to fail if it is already there, but we do want to fail
-    # if it cannot be created.
-    #try:
-        #mkdirs(taskDir, exist_ok=True)
-    #except:
-        #print(f"Failed to create {taskDir}.  Quitting.")
-        #sys.exit()
+    if 'gonogo' in file:
+        # assign task to gng
+        gng_task = 'gng'
 
-    # Construct the real target path for this task file
-    new_file = pjoin(raw, task, file)
-    # Construct path to the dataDrop location   
-    old_file = pjoin(dDrop, file)
-    
-    # For testing, only copy the files
-    print(f'\nMoving {old_file}\n  to {new_file}')
-    
+        # Construct the real target path for this task file
+        new_file = pjoin(raw, gng_task, file)
+        # Construct path to the dataDrop location
+        old_file = pjoin(dDrop, file)
+    else:
+        # We only need the second and third items from the split Example
+        # file looks like '6567_faces_t1.mat'
+        task = file.split('_')[1]
+
+        # Construct the real target path for this task file
+        new_file = pjoin(raw, task, file)
+        # Construct path to the dataDrop location
+        old_file = pjoin(dDrop, file)
+
+    print(f'\nMoving {old_file}\n to {new_file}')
+   
     try:
-        copyfile(old_file, new_file)
-        # Comment or remove above line and uncomment following when ready to move.
-        # movefile(old_file, new_file)
+        movefile(old_file, new_file)
     except:
         print("Something went wrong moving", os.path.basename(old_file),
               "to", os.path.basename(new_file))
